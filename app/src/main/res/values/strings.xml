@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Doa Sehari Hari</string>
+    <string name="m_home">Home</string>
+    <string name="m_favorite">Favorite</string>
+    <string name="m_profile">Profile</string>
+
+    <string name="search">Cari Doa</string>
+
+</resources>
