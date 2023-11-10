@@ -103,18 +103,13 @@ fun DetailContent(doa: DataDoa) {
         )
         Divider()
         Text(
-            text = "Description:",
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold
-        )
-        Text(
             text = doa.arab,
             modifier = Modifier
                 .padding(bottom = 16.dp)
         )
         Divider()
         Text(
-            text = "Populasi:",
+            text = "Artinya:",
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold
         )

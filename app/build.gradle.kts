@@ -60,7 +60,7 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3:1.1.1")
+    implementation("androidx.compose.material3:material3:1.1.2")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.5")
     implementation("com.google.android.material:material:1.10.0")
     testImplementation("junit:junit:4.13.2")
@@ -71,10 +71,23 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
+    //Navigation Jetpack Compose
     implementation("androidx.navigation:navigation-compose:2.7.5")
+
+    //LIVE Data
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation ("androidx.compose.runtime:runtime-livedata")
+
+    //Room
     implementation("androidx.room:room-ktx:2.6.0")
     annotationProcessor("androidx.room:room-compiler:2.6.0")
     ksp ("androidx.room:room-compiler:2.5.2")
-    implementation ("androidx.compose.runtime:runtime-livedata")
+
+    // Test rules
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
 }
