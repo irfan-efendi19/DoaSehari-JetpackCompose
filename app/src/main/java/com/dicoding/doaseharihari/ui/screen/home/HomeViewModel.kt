@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dicoding.doaseharihari.data.UiState
+import com.dicoding.doaseharihari.data.Result
 import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.data.repository.RepositoryDoa
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,19 +16,19 @@ class HomeViewModel(
     private val repository: RepositoryDoa
 ) : ViewModel() {
 
-    private val _uiState: MutableStateFlow<UiState<List<DataDoa>>> =
-        MutableStateFlow(UiState.Loading)
-    val uiState: StateFlow<UiState<List<DataDoa>>>
-        get() = _uiState
+    private val _result: MutableStateFlow<Result<List<DataDoa>>> =
+        MutableStateFlow(Result.Loading)
+    val result: StateFlow<Result<List<DataDoa>>>
+        get() = _result
 
     fun getAllDoa() {
         viewModelScope.launch {
             repository.getAllDoa()
                 .catch {
-                    _uiState.value = UiState.Error(it.message.toString())
+                    _result.value = Result.Error(it.message.toString())
                 }
                 .collect { doa ->
-                    _uiState.value = UiState.Success(doa)
+                    _result.value = Result.Success(doa)
                 }
         }
     }
@@ -42,10 +42,10 @@ class HomeViewModel(
         viewModelScope.launch {
             repository.searchDoa(newQuery)
                 .catch {
-                    _uiState.value = UiState.Error(it.message.toString())
+                    _result.value = Result.Error(it.message.toString())
                 }
                 .collect { data ->
-                    _uiState.value = UiState.Success(data)
+                    _result.value = Result.Success(data)
                 }
         }
     }

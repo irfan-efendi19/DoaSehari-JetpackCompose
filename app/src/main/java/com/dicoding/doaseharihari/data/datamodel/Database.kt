@@ -10,7 +10,7 @@ import com.dicoding.doaseharihari.data.entity.DoaEntity
 @Database(entities = [DoaEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun animalDao(): DoaDao
+    abstract fun doaDao(): DoaDao
 
     companion object {
         @Volatile

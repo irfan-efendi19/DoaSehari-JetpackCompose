@@ -10,13 +10,13 @@ class FavoriteRepository(
 
     val readAllFavorite: LiveData<List<DoaEntity>> = doaDao.getFavoriteAll()
 
-    fun isFavoriteAnimal(id: Long) = doaDao.getFavoriteById(id)
+    fun isFavorite(id: Long) = doaDao.getFavoriteById(id)
 
-    suspend fun addFavorite(animal: DoaEntity) {
-        doaDao.insert(animal)
+    suspend fun addFavorite(doa: DoaEntity) {
+        doaDao.insert(doa)
     }
 
-    suspend fun deleteFavorite(animal: DoaEntity) {
-        doaDao.delete(animal)
+    suspend fun deleteFavorite(doa: DoaEntity) {
+        doaDao.delete(doa)
     }
 }

@@ -14,7 +14,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dicoding.doaseharihari.data.Injection
-import com.dicoding.doaseharihari.data.UiState
+import com.dicoding.doaseharihari.data.Result
 import com.dicoding.doaseharihari.data.ViewModelFactory
 import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.ui.component.DoaItem
@@ -27,13 +27,13 @@ fun HomeScreen(
     ),
     navigateToDetail: (Long) -> Unit,
 ) {
-    viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { _uiState ->
+    viewModel.result.collectAsState(initial = Result.Loading).value.let { _uiState ->
         when (_uiState) {
-            is UiState.Loading -> {
+            is Result.Loading -> {
                 viewModel.getAllDoa()
             }
 
-            is UiState.Success -> {
+            is Result.Success -> {
                 HomeScreen(
                     _uiState.data,
                     navigateToDetail = navigateToDetail,
@@ -41,7 +41,7 @@ fun HomeScreen(
                 )
             }
 
-            is UiState.Error -> {}
+            is Result.Error -> {}
         }
     }
 }

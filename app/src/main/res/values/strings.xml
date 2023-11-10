@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">Doa Sehari Hari</string>
+    <string name="app_name">Daily Prayer</string>
     <string name="m_home">Home</string>
     <string name="m_favorite">Favorite</string>
     <string name="m_profile">Profile</string>
-
-    <string name="search">Cari Doa</string>
+    <string name="search">Search Prayer</string>
+    <string name="favorite">Favorite items will be saved here</string>
+    <string name="profil">Profile Picture</string>
+    <string name="delete_favorite">Favorite Items successfully deleted</string>
+    <string name="add_favorite">Favorite Item added successfully</string>
 
 </resources>

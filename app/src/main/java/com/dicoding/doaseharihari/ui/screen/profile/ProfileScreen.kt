@@ -61,7 +61,7 @@ fun ImageProfile() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.log),
-            contentDescription = "profile image",
+            contentDescription = R.string.profil.toString(),
             modifier = Modifier.size(150.dp),
             contentScale = ContentScale.Crop
         )

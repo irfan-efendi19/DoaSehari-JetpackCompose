@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Doa Sehari Hari</string>
+    <string name="m_home">Beranda</string>
+    <string name="m_favorite">Favorite</string>
+    <string name="m_profile">Profil</string>
+    <string name="search">Cari Doa</string>
+    <string name="favorite">Item Favorite akan tersimpan disini</string>
+    <string name="profil">Foto Profil</string>
+    <string name="delete_favorite">Item Favorit berhasil dihapus</string>
+    <string name="add_favorite">Item Favorit berhasil ditambah</string>
+</resources>

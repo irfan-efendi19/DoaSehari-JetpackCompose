@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.dicoding.doaseharihari.R
 import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.ui.component.DoaItem
 
@@ -50,7 +51,7 @@ fun FavoriteScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "There is no favorite."
+                    text = R.string.favorite.toString()
                 )
             }
         } else {

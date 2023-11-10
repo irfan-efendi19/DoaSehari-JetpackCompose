@@ -2,7 +2,7 @@ package com.dicoding.doaseharihari.ui.screen.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dicoding.doaseharihari.data.UiState
+import com.dicoding.doaseharihari.data.Result
 import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.data.repository.RepositoryDoa
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,15 +13,15 @@ class DetailViewModel(
     private val repository: RepositoryDoa
 ) : ViewModel() {
 
-    private val _uiState: MutableStateFlow<UiState<DataDoa>> =
-        MutableStateFlow(UiState.Loading)
-    val uiState: StateFlow<UiState<DataDoa>>
-        get() = _uiState
+    private val _result: MutableStateFlow<Result<DataDoa>> =
+        MutableStateFlow(Result.Loading)
+    val result: StateFlow<Result<DataDoa>>
+        get() = _result
 
     fun getDoaById(animalId: Long) {
         viewModelScope.launch {
-            _uiState.value = UiState.Loading
-            _uiState.value = UiState.Success(repository.getDoaById(animalId))
+            _result.value = Result.Loading
+            _result.value = Result.Success(repository.getDoaById(animalId))
         }
     }
 }

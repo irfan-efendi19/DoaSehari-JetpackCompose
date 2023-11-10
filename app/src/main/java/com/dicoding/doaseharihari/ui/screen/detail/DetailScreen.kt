@@ -23,14 +23,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.dicoding.doaseharihari.R
 import com.dicoding.doaseharihari.data.Injection
-import com.dicoding.doaseharihari.data.UiState
+import com.dicoding.doaseharihari.data.Result
 import com.dicoding.doaseharihari.data.ViewModelFactory
 import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.data.entity.DoaEntity
 import com.dicoding.doaseharihari.ui.screen.favorite.FavoriteViewModel
 import com.dicoding.doaseharihari.ui.screen.favorite.FavoriteViewModelFactory
-
 
 
 @Composable
@@ -42,17 +42,17 @@ fun DetailScreen(
         )
     )
 ) {
-    viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { _uiState ->
+    viewModel.result.collectAsState(initial = Result.Loading).value.let { _uiState ->
         when (_uiState) {
-            is UiState.Loading -> {
+            is Result.Loading -> {
                 viewModel.getDoaById(doaId)
             }
 
-            is UiState.Success -> {
+            is Result.Success -> {
                 DetailContent(doa = _uiState.data)
             }
 
-            is UiState.Error -> {}
+            is Result.Error -> {}
         }
     }
 }
@@ -67,8 +67,10 @@ fun DetailContent(doa: DataDoa) {
     val isFavorite = mFavoriteViewModel.isFavorite(doa.id).observeAsState().value
 
     Column(
+        modifier = Modifier
+            .padding(32.dp, 32.dp, 32.dp, 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
     ) {
         Text(
             text = doa.title,
@@ -82,8 +84,11 @@ fun DetailContent(doa: DataDoa) {
             text = doa.arab,
             modifier = Modifier.padding(bottom = 16.dp),
             fontSize = 26.sp,
-
-            )
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = doa.latin, textAlign = TextAlign.Center, fontSize = 14.sp
+        )
         Divider()
         Text(
             text = "Artinya:",
@@ -106,17 +111,17 @@ fun DetailContent(doa: DataDoa) {
                     mFavoriteViewModel.deleteFavorite(isFavorite)
                     Toast.makeText(
                         context,
-                        "Favorite deleted successfully.",
+                        R.string.delete_favorite,
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     mFavoriteViewModel.addFavorite(doaEntity)
-                    Toast.makeText(context, "Favorite added successfully.", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, R.string.add_favorite, Toast.LENGTH_SHORT)
                         .show()
                 }
             },
             modifier = Modifier
-                .padding(bottom = 16.dp)
+                .padding(top = 52.dp)
         ) {
             if (isFavorite?.id == doa.id) {
                 Icon(imageVector = Icons.Filled.Favorite, contentDescription = null)

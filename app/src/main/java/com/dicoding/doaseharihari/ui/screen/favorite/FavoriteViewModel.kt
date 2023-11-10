@@ -18,7 +18,7 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
     private val favoriteRepository: FavoriteRepository
 
     init {
-        val doaDao = AppDatabase.getDatabase(application).animalDao()
+        val doaDao = AppDatabase.getDatabase(application).doaDao()
         favoriteRepository = FavoriteRepository(doaDao)
         readAllFavorite = favoriteRepository.readAllFavorite
     }
@@ -35,7 +35,7 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun isFavorite(id: Long) = favoriteRepository.isFavoriteAnimal(id)
+    fun isFavorite(id: Long) = favoriteRepository.isFavorite(id)
 }
 
 class FavoriteViewModelFactory(
