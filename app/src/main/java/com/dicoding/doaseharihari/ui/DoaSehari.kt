@@ -67,9 +67,6 @@ fun DoaSehari(
                     }
                 )
             }
-            composable(Screen.Profile.route) {
-                ProfileScreen()
-            }
             composable(
                 route = Screen.DetailDoa.route,
                 arguments = listOf(
@@ -79,6 +76,9 @@ fun DoaSehari(
                 val id = it.arguments?.getLong("doaId") ?: -1L
 
                 DetailScreen(doaId = id)
+            }
+            composable(Screen.Profile.route) {
+                ProfileScreen()
             }
         }
     }

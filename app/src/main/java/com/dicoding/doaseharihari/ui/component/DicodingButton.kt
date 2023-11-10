@@ -16,26 +16,28 @@ import com.dicoding.doaseharihari.ui.theme.DoaSehariHariTheme
 
 
 @Composable
-fun GithubButton(
+fun DicodingButton(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val intent = remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/irfan-efendi19")) }
+    val intent =
+        remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/irfan-efendi19")) }
     Button(
         onClick = { context.startActivity(intent) },
-        modifier = modifier
-            .wrapContentSize(), colors = ButtonDefaults.buttonColors(
+        modifier = modifier.wrapContentSize(),
+        colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
     ) {
-        Text(text = "My Github", color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(text = "Dicoding Profile", color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
 
+
 @Composable
 @Preview(showBackground = true)
-fun GithubButtonPreview() {
+fun DicodingButtonPreview() {
     DoaSehariHariTheme {
-        GithubButton()
+        DicodingButton()
     }
 }

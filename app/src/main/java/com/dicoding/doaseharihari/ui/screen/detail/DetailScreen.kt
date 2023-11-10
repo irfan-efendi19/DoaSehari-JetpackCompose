@@ -60,11 +60,11 @@ fun DetailScreen(
 @Composable
 fun DetailContent(doa: DataDoa) {
     val context = LocalContext.current
-    val mFavoriteViewModel: FavoriteViewModel = viewModel(
+    val _FavoriteViewModel: FavoriteViewModel = viewModel(
         factory = FavoriteViewModelFactory(context.applicationContext as Application)
     )
 
-    val isFavorite = mFavoriteViewModel.isFavorite(doa.id).observeAsState().value
+    val isFavorite = _FavoriteViewModel.isFavorite(doa.id).observeAsState().value
 
     Column(
         modifier = Modifier
@@ -108,14 +108,14 @@ fun DetailContent(doa: DataDoa) {
                     translation = doa.translation
                 )
                 if (isFavorite?.id == doa.id) {
-                    mFavoriteViewModel.deleteFavorite(isFavorite)
+                    _FavoriteViewModel.deleteFavorite(isFavorite)
                     Toast.makeText(
                         context,
                         R.string.delete_favorite,
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    mFavoriteViewModel.addFavorite(doaEntity)
+                    _FavoriteViewModel.addFavorite(doaEntity)
                     Toast.makeText(context, R.string.add_favorite, Toast.LENGTH_SHORT)
                         .show()
                 }

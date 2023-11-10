@@ -21,8 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dicoding.doaseharihari.R
-import com.dicoding.doaseharihari.ui.DoaSehari
-import com.dicoding.doaseharihari.ui.component.GithubButton
+import com.dicoding.doaseharihari.ui.component.DicodingButton
 import com.dicoding.doaseharihari.ui.theme.DoaSehariHariTheme
 
 @Composable
@@ -45,7 +44,7 @@ fun ProfileScreen(
         ) {
             ImageProfile()
             Info()
-            GithubButton()
+            DicodingButton()
         }
     }
 }
@@ -60,7 +59,7 @@ fun ImageProfile() {
         border = BorderStroke(0.5.dp, Color.LightGray)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.log),
+            painter = painterResource(id = R.drawable.avatar),
             contentDescription = R.string.profil.toString(),
             modifier = Modifier.size(150.dp),
             contentScale = ContentScale.Crop
