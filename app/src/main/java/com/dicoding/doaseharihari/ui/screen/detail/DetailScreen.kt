@@ -11,7 +11,6 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -21,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -32,6 +30,8 @@ import com.dicoding.doaseharihari.data.datamodel.DataDoa
 import com.dicoding.doaseharihari.data.entity.DoaEntity
 import com.dicoding.doaseharihari.ui.screen.favorite.FavoriteViewModel
 import com.dicoding.doaseharihari.ui.screen.favorite.FavoriteViewModelFactory
+
+
 
 @Composable
 fun DetailScreen(
@@ -45,7 +45,7 @@ fun DetailScreen(
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { _uiState ->
         when (_uiState) {
             is UiState.Loading -> {
-                viewModel.getAnimalById(doaId)
+                viewModel.getDoaById(doaId)
             }
 
             is UiState.Success -> {
@@ -124,22 +124,6 @@ fun DetailContent(doa: DataDoa) {
                 Icon(imageVector = Icons.Filled.FavoriteBorder, contentDescription = null)
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DoaItemPreview() {
-    MaterialTheme {
-        DetailContent(
-            doa = DataDoa(
-                1,
-                "Doa Sebelum Makan",
-                "اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
-                "Alloohumma barik lanaa fiimaa razatanaa waqinaa 'adzaa bannar",
-                "Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka"
-            )
-        )
     }
 }
 

@@ -89,5 +89,6 @@ dependencies {
     // Test rules
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    androidTestImplementation ("androidx.navigation:navigation-testing:2.7.5")
 
 }

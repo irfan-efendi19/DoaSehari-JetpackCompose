@@ -18,7 +18,7 @@ class DetailViewModel(
     val uiState: StateFlow<UiState<DataDoa>>
         get() = _uiState
 
-    fun getAnimalById(animalId: Long) {
+    fun getDoaById(animalId: Long) {
         viewModelScope.launch {
             _uiState.value = UiState.Loading
             _uiState.value = UiState.Success(repository.getDoaById(animalId))

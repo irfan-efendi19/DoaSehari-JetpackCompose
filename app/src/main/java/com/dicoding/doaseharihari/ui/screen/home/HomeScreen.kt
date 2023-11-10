@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dicoding.doaseharihari.data.Injection
@@ -39,10 +40,12 @@ fun HomeScreen(
                     viewModel
                 )
             }
+
             is UiState.Error -> {}
         }
     }
 }
+
 
 @Composable
 fun HomeScreen(
@@ -56,7 +59,9 @@ fun HomeScreen(
         Search(query = query, onQueryChange = viewModel::search)
         LazyColumn(
             modifier = Modifier
-                .fillMaxSize().padding(start = 5.dp, end = 5.dp)
+                .testTag("ListDoa")
+                .fillMaxSize()
+                .padding(start = 5.dp, end = 5.dp)
         ) {
             items(doaList) { data ->
                 DoaItem(

@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dicoding.doaseharihari.R
 import com.dicoding.doaseharihari.ui.DoaSehari
+import com.dicoding.doaseharihari.ui.component.GithubButton
 import com.dicoding.doaseharihari.ui.theme.DoaSehariHariTheme
 
 @Composable
@@ -44,6 +45,7 @@ fun ProfileScreen(
         ) {
             ImageProfile()
             Info()
+            GithubButton()
         }
     }
 }

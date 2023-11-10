@@ -27,11 +27,11 @@ fun FavoriteScreen(
     navigateToDetail: (Long) -> Unit,
 ) {
     val context = LocalContext.current
-    val mFavoriteViewModel: FavoriteViewModel = viewModel(
+    val _favoriteViewModel: FavoriteViewModel = viewModel(
         factory = FavoriteViewModelFactory(context.applicationContext as Application)
     )
 
-    val list = mFavoriteViewModel.readAllFavorite.observeAsState(listOf()).value
+    val list = _favoriteViewModel.readAllFavorite.observeAsState(listOf()).value
 
     Column {
         Text(
@@ -54,7 +54,7 @@ fun FavoriteScreen(
                 )
             }
         } else {
-            LazyColumn() {
+            LazyColumn {
                 items(list) { doa ->
                     val data = DataDoa(
                         id = doa.id,
