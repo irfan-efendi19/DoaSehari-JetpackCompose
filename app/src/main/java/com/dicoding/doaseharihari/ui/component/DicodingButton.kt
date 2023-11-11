@@ -21,7 +21,12 @@ fun DicodingButton(
 ) {
     val context = LocalContext.current
     val intent =
-        remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/irfan-efendi19")) }
+        remember {
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.dicoding.com/users/irfan_efendi19/academies")
+            )
+        }
     Button(
         onClick = { context.startActivity(intent) },
         modifier = modifier.wrapContentSize(),
