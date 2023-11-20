@@ -51,7 +51,7 @@ fun FavoriteScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = R.string.favorite.toString()
+                    text = context.getString(R.string.favorite)
                 )
             }
         } else {
